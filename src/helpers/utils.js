@@ -1,3 +1,4 @@
+// params is an object and it will contain all properties
 export function getFormBody(params) {
   let formBody = [];
   for (let property in params) {

@@ -29,15 +29,41 @@ export function loginSuccess(user) {
   };
 }
 
+// login action . this is asynchronous action. this
+// action will require redux thunk. since it is
+// asynchronous action we will be returning func in it
+// this func will get dispatch as an argument.
+//
 export function login(email, password) {
   return dispatch => {
     dispatch(startLogin());
     const url = 'APIUrls.login()';
+    // by default my fetch request is get one
+    // i dont want to make a get request as my login
+    // request is post one
     fetch(url, {
       method: 'POST',
+      // i write this bcoz my server will only request
+      // which are content type of url form encoded
+      // if i send it as json it wont accept it
+      // because our api are written as that way
+      // if my api would accept json then i dont need to
+      // specify content type header, you could
+      // specify you are passing json only but it
+      // would work without it as well
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
+
+      // i have to convert my url and password into
+      // url encoded string
+      // pass it as an object why?
+      // because in future i need to send post request
+      // for creating post
+      // there my properties will be diff
+      // like post.id, post.content, who created the post,
+      // for that my url encoded parameters will be different
+
       body: getFormBody({ email, password })
     })
       .then(response => response.json())
