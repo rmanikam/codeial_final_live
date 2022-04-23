@@ -39,8 +39,9 @@ class App extends Component {
 
     const token = localStorage.getItem('token');
     if (token) {
+      // token is encrypted so we use jwtDecode package
       const user = jwtDecode(token);
-
+      // we want to store the user inf in the redux store
       console.log('user', user);
       this.props.dispatch(
         authenticateUser({

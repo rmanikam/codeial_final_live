@@ -66,6 +66,10 @@ export function login(email, password) {
 
       body: getFormBody({ email, password })
     })
+      // fetch will get me a promise and here i will get a
+      // response and this response will be of type reponse
+      //object and i have to convert it into json using json method
+      // in fetch response.json is a syntax
       .then(response => response.json())
       .then(data => {
         console.log('data', data);
@@ -78,6 +82,8 @@ export function login(email, password) {
       });
   };
 }
+// make 8 to 10 small or more projects in redux. do regular practise
+// to do app without redux, using redux
 
 export function authenticateUser(user) {
   return {
@@ -94,7 +100,6 @@ export function logoutUser(user) {
 
 export function signup(email, password, confirmPassword, name) {
   return dispatch => {
-    dispatch(startLogin());
     const url = APIUrls.signup();
     fetch(url, {
       method: 'POST',
@@ -128,10 +133,10 @@ export function startSignup() {
     type: SIGNUP_START
   };
 }
-export function signupFailed(errorMessage) {
+export function signupFailed(error) {
   return {
     type: SIGNUP_FAILED,
-    error: errorMessage
+    error
   };
 }
 export function signupSuccessful(user) {

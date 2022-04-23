@@ -45,6 +45,11 @@ class Login extends Component {
     });
   };
 
+  // I can use the login  and startLogin action in my Login component
+  // where do i have to dispatch this login action
+  // in my handle form submit
+  // when i click on submit button i dispatch
+  //
   handleFormSubmit = e => {
     // when i click on button everytime it is automatically
     //submitting the form . i dont want to do that.
@@ -55,8 +60,10 @@ class Login extends Component {
 
     // every ref in react will have current property which
     // will be either null if not set or current.
+
     console.log('this.state', this.state);
     const { email, password } = this.state;
+    // we dispatch action if we have both email and password
     if (email && password) {
       this.props.dispatch(login(email, password));
     }
@@ -96,7 +103,9 @@ class Login extends Component {
               Logging in...
             </button>
           ) : (
-            <button onClick={this.handleFormSubmit}>Log In</button>
+            <button onClick={this.handleFormSubmit} disabled={inProgress}>
+              Log In
+            </button>
           )}
         </div>
       </form>

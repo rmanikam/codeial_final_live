@@ -4,7 +4,8 @@ import { UPDATE_POSTS } from './actionTypes';
 
 export function fetchPosts() {
   return dispatch => {
-    const url = APIUrls.fetchPosts()
+    const url = APIUrls.posts();
+    fetch(url)
       .then(response => {
         // convert response to json
         return response.json();

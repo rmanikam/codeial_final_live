@@ -14,11 +14,18 @@ class Navbar extends Component {
       <nav className="nav">
         <div className="left-div">
           <Link to="/">
-            <img src="" alt="logo" />
+            <img
+              src="https://ninjasfiles.s3.amazonaws.com/0000000000003454.png"
+              alt="logo"
+            />
           </Link>
         </div>
         <div className="search-container">
-          <img className="search-icon" src="" alt="search-icon" />
+          <img
+            className="search-icon"
+            src="https://cdn-icons.flaticon.com/png/128/3031/premium/3031293.png?token=exp=1650702357~hmac=c1e163ad063e7db176a654fdd752c913"
+            alt="search-icon"
+          />
           <input placeholder="Search" />
           <div className="search-results">
             <ul>
