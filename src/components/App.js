@@ -22,17 +22,19 @@ const Signup = () => {
 
 const Settings = () => <div>Setting</div>;
 
-// const PrivatRoute = (privateRouteProps) =>
-// {
-//   const { isLoggedin, path, component: Component } = privateRouteProps;
+const PrivateRoute = privateRouteProps => {
+  const { isLoggedin, path, component: Component } = privateRouteProps;
 
-//   return <Route path ={path} render = { (props) => {
-
-//     return isLoggedin ? <Component {...props} /> : <Redirect to ="/login" />;
-
-//   }}/>
-
-// }
+  return (
+    // how do we render routes? we use route component
+    <Route
+      path={path}
+      render={props => {
+        return isLoggedin ? <Component {...props} /> : <Redirect to="/login" />;
+      }}
+    />
+  );
+};
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(fetchPosts());
@@ -94,7 +96,7 @@ class App extends Component {
             />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <Route
+            <PrivateRoute
               path="/settings"
               component={Settings}
               isLoggedin={auth.isLoggedin}
