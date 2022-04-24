@@ -30,11 +30,17 @@ class Navbar extends Component {
           <div className="search-results">
             <ul>
               <li className="search-results-row">
-                <img src="" alt="user-dp" />
+                <img
+                  src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
+                  alt="user-dp"
+                />
                 <span>John Doe</span>
               </li>
               <li className="search-results-row">
-                <img src="" alt="user-dp" />
+                <img
+                  src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
+                  alt="user-dp"
+                />
                 <span>John Doe</span>
               </li>
             </ul>
@@ -44,7 +50,11 @@ class Navbar extends Component {
           {auth.isLoggedin && (
             <div className="user">
               <Link to="settings">
-                <img src="" alt="user-dp" id="user-dp" />
+                <img
+                  src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
+                  alt="user-dp"
+                  id="user-dp"
+                />
               </Link>
               <span>{auth.user.name}</span>
             </div>
